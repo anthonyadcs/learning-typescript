@@ -47,3 +47,22 @@ const otherUser2 = new User('Paulo', 27)
 //O QUE É POO? //O QUE É POO? //O QUE É POO? //O QUE É POO? //O QUE É POO? //O QUE É POO? //O QUE É POO? 
 //O QUE É POO? //O QUE É POO? //O QUE É POO? //O QUE É POO? //O QUE É POO? //O QUE É POO? //O QUE É POO? 
 //O QUE É POO? //O QUE É POO? //O QUE É POO? //O QUE É POO? //O QUE É POO? //O QUE É POO? //O QUE É POO? 
+
+//CLASSES E TIPOS//CLASSES E TIPOS//CLASSES E TIPOS//CLASSES E TIPOS//CLASSES E TIPOS//CLASSES E TIPOS
+//CLASSES E TIPOS//CLASSES E TIPOS//CLASSES E TIPOS//CLASSES E TIPOS//CLASSES E TIPOS//CLASSES E TIPOS
+//CLASSES E TIPOS//CLASSES E TIPOS//CLASSES E TIPOS//CLASSES E TIPOS//CLASSES E TIPOS//CLASSES E TIPOS
+
+/* O que é ABSTRAÇÃO?
+
+  Abstração é a CAPACIDADE de conseguir PENSAR no objeto que iremos criar e COMO IMPLEMENTAR seus MÉTODOS e ATRIBUTOS
+*/
+
+/* O que é HERANÇA?
+
+  Permite que a classe COMPARTILHE CARACTERÍSITCAS com outra. Usada para EVITAR REPETIÇÃO, reaproveitando atributos e métodos.
+*/
+
+/* O que é POLIMORFISMO?
+
+  Permite que a classe filha CHAME um MÉTODO com ASSINATURA DIFERENTE. Ou seja, o FLUXO DO MÉTODO é diferente comparado ao original.
+*/
