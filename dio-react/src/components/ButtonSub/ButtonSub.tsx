@@ -1,12 +1,13 @@
 import {Button} from '@chakra-ui/react'
+import {MouseEventHandler} from 'react'
 
 interface ButtonSubmit {
-  event: () => {}
+  event: MouseEventHandler
 }
 
 export const ButtonSub = ({event} :ButtonSubmit) => {
   return (
-    <Button 
+    <Button
     onClick={event}
     w='100%'
     fontWeight="bold"
