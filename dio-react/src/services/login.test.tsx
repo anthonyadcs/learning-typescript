@@ -1,11 +1,12 @@
-import {login} from './login'
+import { login } from "./login"
 
-  describe('login', () => {
+describe('login', () => {
 
-    const mockPrompt = jest.fn();
-    window.prompt = mockPrompt
-    it('Deve exibir um prompt com boas vindas', ()=> {
-      login()
-      expect(mockPrompt).toHaveBeenCalledWith('Bem vindo!')
+    const mockAlert = jest.fn()
+    window.alert = mockAlert
+
+    it('Deve exibir um alert com boas vindas', () => {
+        login()
+        expect(mockAlert).toHaveBeenCalledWith('Bem vinda!')
     })
-  })
+})

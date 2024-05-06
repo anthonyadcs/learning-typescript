@@ -1,3 +1,3 @@
-export const login = ():any =>{
-  prompt('Bem vindo!')
+export const login = ():any => {
+  alert('Bem vinda!')
 }
