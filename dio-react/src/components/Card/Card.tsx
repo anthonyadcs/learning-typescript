@@ -1,8 +1,30 @@
 import {Text, Input, FormControl, FormLabel} from '@chakra-ui/react'
 import { login } from '../../services/login'
 import { ButtonSub } from '../ButtonSub/ButtonSub'
+import {useState, useEffect} from 'react'
+import {api} from '../../services/api'
+
+interface UserData {
+  email: string,
+  password: string,
+  name: string
+}
 
 export const Card = () => {
+  const [email, setEmail] = useState('')
+  const [userData, setUserData] = useState<null | UserData>()
+
+  useEffect(() => {
+    const getData = async () =>{
+      const data: any | UserData = await api
+      setUserData(data)
+    }
+
+    getData()
+  }, [])
+
+  console.log(userData)
+
   return (
   <>
       <Text 
@@ -27,7 +49,11 @@ export const Card = () => {
               Email
             </Text>
         </FormLabel>
-        <Input placeholder="EMAIL" type="email"/>
+        <Input 
+        placeholder="EMAIL" 
+        type="email"
+        onChange = {(e) => {setEmail(e.target.value)}}
+        />
       </FormControl>
 
       <FormControl>
@@ -46,7 +72,7 @@ export const Card = () => {
         <Input placeholder="SENHA" type="password"/>
       </FormControl>
 
-      <ButtonSub event={login}/>
+      <ButtonSub event={() => login(email)}/>
   </>
   )
 }
