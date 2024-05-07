@@ -27,6 +27,10 @@ export const Card = () => {
 
   return (
   <>
+      {
+      (userData === null || userData === undefined) ? 
+      <h1>Loading...</h1> : 
+      <h1>Infos carregadas</h1>}
       <Text 
         fontSize="2xl" 
         textAlign="center"
