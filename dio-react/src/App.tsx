@@ -1,22 +1,26 @@
-import { 
-  ChakraProvider,
-  Flex,
-  Box,
-} from '@chakra-ui/react'
-import { Header } from './components/Header/Header';
-import { Card } from './components/Card/Card';
-;
+
+import { Home } from './pages/Home';
+import { Conta } from './pages/Conta';
+import { Layout } from './components/Layout/Layout';
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import {ChakraProvider} from '@chakra-ui/react'
 
 function App() {
   return (
-    <ChakraProvider>
-      <Flex minHeight='100vh' backgroundColor='#9413dc' flexDirection="column" alignItems="center" justifyContent='center'>
-        <Box backgroundColor='#FFFFFF' borderRadius='25px' padding='15px 50px' maxW="lg">
-          <Header/>
-          <Card/>
-        </Box>
-      </Flex>
-    </ChakraProvider>
+    <BrowserRouter>
+      <ChakraProvider>
+        <Layout>
+          <Routes>
+            <Route path='/' element={
+              <Home/>
+            }/>
+            <Route path='/conta' element={
+              <Conta/>
+            }/>
+          </Routes>
+        </Layout>
+      </ChakraProvider>
+    </BrowserRouter>
   );
 }
 
