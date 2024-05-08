@@ -1,36 +1,13 @@
 import {Text, Input, FormControl, FormLabel} from '@chakra-ui/react'
 import { login } from '../../services/login'
 import { ButtonSub } from '../ButtonSub/ButtonSub'
-import {useState, useEffect} from 'react'
-import {api} from '../../services/api'
-
-interface UserData {
-  email: string,
-  password: string,
-  name: string
-}
+import {useState, } from 'react'
 
 export const Card = () => {
   const [email, setEmail] = useState('')
-  const [userData, setUserData] = useState<null | UserData>()
-
-  useEffect(() => {
-    const getData = async () =>{
-      const data: any | UserData = await api
-      setUserData(data)
-    }
-
-    getData()
-  }, [])
-
-  console.log(userData)
 
   return (
   <>
-      {
-      (userData === null || userData === undefined) ? 
-      <h1>Loading...</h1> : 
-      <h1>Infos carregadas</h1>}
       <Text 
         fontSize="2xl" 
         textAlign="center"
