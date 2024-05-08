@@ -2,17 +2,20 @@ import {Center, SimpleGrid, Spinner} from '@chakra-ui/react'
 import {useState, useEffect} from 'react'
 import {api} from '../services/api'
 import {CardInfo} from '../components/CardInfo/CardInfo'
+import {useParams, useNavigate} from 'react-router-dom'
 
 interface UserData {
   email: string,
   password: string,
   name: string,
-  balance: number
+  balance: number,
+  id:string
 }
 
 export const Conta = () => {
   const [userData, setUserData] = useState<null | UserData>()
-  console.log(userData)
+  const { id } = useParams()
+  const navigate = useNavigate()
 
   useEffect(() => {
     const getData = async () =>{
@@ -25,6 +28,10 @@ export const Conta = () => {
 
   const actualData = new Date()
 
+  console.log(userData)
+  if(userData && id !== userData.id){
+    navigate('/')
+  }
   return(
     <Center>
       <SimpleGrid columns={2} spacing={10}>
