@@ -15,10 +15,10 @@ export const Home = () => {
 
     if(!loggedIn){
       navigate('/')
+    } else {
+      setIsLoggedIn(true)
+      navigate('/conta/1')
     }
-
-    setIsLoggedIn(true)
-    navigate('/conta/1')
   }
 
   return (
