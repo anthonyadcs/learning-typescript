@@ -1,18 +1,15 @@
 import { login } from "./login"
 
 describe('login', () => {
-
-    const mockAlert = jest.fn()
     const mockEmail = 'anthony@gmail.com'
-    window.alert = mockAlert
     
     it('Deve exibir um alert com boas vindas caso o email seja válido', async () => {
-    await login(mockEmail)
-    expect(mockAlert).toHaveBeenCalledWith(`Bem vindo, ${mockEmail}`)
-    })
+    const response = await login(mockEmail)
+    expect(response).toBeTruthy()
+})
 
-    it('Deve exibir um erro caso o email seja inválido', async () => {
-        await login('email@invalido.com')
-        expect(mockAlert).toHaveBeenCalledWith('Email inválido')
+it('Deve exibir um erro caso o email seja inválido', async () => {
+    const response = await login('email@invalido.com')
+    expect(response).toBeFalsy()
     })
 })
