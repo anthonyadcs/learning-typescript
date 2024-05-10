@@ -59,14 +59,17 @@ export const Conta = () => {
             (
               <>
                 <CardInfo mainContent={`Bem vindo, ${userData?.name}`} content={formattedDateTime}/>
-
                 <CardInfo mainContent='Saldo:' content={`R$ ${userData.balance}`}/>              
               </>
             )
           }
         </SimpleGrid>
       </Center>
-      <ButtonSub event={() => logout()} text="Sair"/>
+      {
+        isLoggedIn && (
+          <ButtonSub event={() => logout()} text="Sair"/>
+        )
+      }
     </>
   )
 }
