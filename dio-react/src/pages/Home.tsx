@@ -1,12 +1,25 @@
 import {Text, FormControl, FormLabel, Input} from '@chakra-ui/react'
 import {ButtonSub} from '../components/ButtonSub/ButtonSub'
-import {useState} from 'react'
+import {useState, useContext } from 'react'
 import { login } from '../services/login'
+import {useNavigate} from 'react-router-dom'
+import {AppContext} from '../components/AppContext/AppContext'
 
 export const Home = () => {
   const [email, setEmail] = useState('')
+  const {setIsLoggedIn} = useContext(AppContext)
+  const navigate = useNavigate()
 
+  const validadeUser = async (email:string) => {
+    const loggedIn= await login(email)
 
+    if(!loggedIn){
+      navigate('/')
+    }
+
+    setIsLoggedIn(true)
+    navigate('/conta/1')
+  }
 
   return (
     <>
@@ -55,7 +68,7 @@ export const Home = () => {
         <Input placeholder="SENHA" type="password"/>
       </FormControl>
 
-      <ButtonSub event={() => login(email)}/>
+      <ButtonSub event={() => validadeUser(email)}/>
   </>
   )
 }
