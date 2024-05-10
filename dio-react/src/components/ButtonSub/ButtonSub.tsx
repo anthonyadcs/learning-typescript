@@ -3,9 +3,10 @@ import {MouseEventHandler} from 'react'
 
 interface ButtonSubmit {
   event: MouseEventHandler
+  text: string
 }
 
-export const ButtonSub = ({event} :ButtonSubmit) => {
+export const ButtonSub = ({event, text} :ButtonSubmit) => {
   return (
     <Button
     onClick={event}
@@ -18,6 +19,6 @@ export const ButtonSub = ({event} :ButtonSubmit) => {
       background: "fff",
       transform: "scale(1.05)",
     }}
-    >Entrar</Button>
+    >{text}</Button>
   )
 }
