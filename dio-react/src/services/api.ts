@@ -1,5 +1,4 @@
-//SIMULA UMA API
-
+// Dados da conta de exemplo
 const conta = {
   email: 'anthony@gmail.com',
   password: '123456',
@@ -8,6 +7,7 @@ const conta = {
   ID: '1',
 }
 
+// Simula uma chamada assíncrona à API que retorna os dados da conta após 1.5 segundos
 export const api = new Promise((resolve) => {
   setTimeout(() => {
     resolve(conta)

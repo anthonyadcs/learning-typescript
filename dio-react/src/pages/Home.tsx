@@ -5,17 +5,24 @@ import { login } from '../services/login'
 import {useNavigate} from 'react-router-dom'
 import {AppContext} from '../components/AppContext/AppContext'
 
+// Página Home que exibe o formulário de login
 export const Home = () => {
+  // Estado para armazenar o email digitado pelo usuário
   const [email, setEmail] = useState('')
+  // Obtém a função para alterar o status de login do contexto da aplicação
   const {setIsLoggedIn} = useContext(AppContext)
+  // Obtém a função de navegação do React Router
   const navigate = useNavigate()
 
-  const validadeUser = async (email:string) => {
-    const loggedIn= await login(email)
+  // Função para validar o usuário ao fazer login
+  const validateUser = async (email:string) => {
+    const loggedIn= await login(email) // Verifica se o login é válido
 
     if(!loggedIn){
-      navigate('/')
+      // Redireciona para a página inicial se o login não for válido
+      navigate('/') 
     } else {
+      // Define o status de login como true e navega para a página da conta do usuário
       setIsLoggedIn(true)
       navigate('/conta/1')
     }
@@ -33,25 +40,29 @@ export const Home = () => {
         >
           Faça login
       </Text>
+
+      {/* Formulário de email */}
       <FormControl>
-      <FormLabel 
-          fontWeight="bold">
-            <Text 
-            bgGradient='linear(to-r, #E94D5F, #3893CF)' 
-            bgClip='text'
-            textTransform = 'uppercase'
-            marginTop='10px'
-            >
-              Email
-            </Text>
+        <FormLabel 
+            fontWeight="bold">
+              <Text 
+              bgGradient='linear(to-r, #E94D5F, #3893CF)' 
+              bgClip='text'
+              textTransform = 'uppercase'
+              marginTop='10px'
+              >
+                Email
+              </Text>
         </FormLabel>
+        
         <Input 
-        placeholder="EMAIL" 
-        type="email"
-        onChange = {(e) => {setEmail(e.target.value)}}
+          placeholder="EMAIL" 
+          type="email"
+          onChange = {(e) => {setEmail(e.target.value)}}
         />
       </FormControl>
 
+      {/* Formulário de senha */}
       <FormControl>
         <FormLabel 
           fontWeight="bold">
@@ -68,7 +79,8 @@ export const Home = () => {
         <Input placeholder="SENHA" type="password"/>
       </FormControl>
 
-      <ButtonSub event={() => validadeUser(email)} text="Entrar"/>
+      {/* Botão de login */}
+      <ButtonSub event={() => validateUser(email)} text="Entrar"/>
   </>
   )
 }
