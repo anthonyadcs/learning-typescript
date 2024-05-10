@@ -68,7 +68,7 @@ export const Home = () => {
         <Input placeholder="SENHA" type="password"/>
       </FormControl>
 
-      <ButtonSub event={() => validadeUser(email)}/>
+      <ButtonSub event={() => validadeUser(email)} text="Entrar"/>
   </>
   )
 }
