@@ -3,9 +3,12 @@ import { Layout } from './components/Layout/Layout';
 import {BrowserRouter} from 'react-router-dom'
 import {ChakraProvider} from '@chakra-ui/react'
 import {MainRoutes} from './routes'
+import { createLocalStorage, getAllLocalStorage } from './services/storage'
 
 // Função App que define a estrutura da aplicação
 function App() {
+  !getAllLocalStorage() && createLocalStorage('DIOBank', {login: false})
+
   return (
       // Renderiza o componente BrowserRouter para gerenciar as rotas da aplicação
     <BrowserRouter>
