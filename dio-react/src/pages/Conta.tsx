@@ -5,6 +5,7 @@ import {CardInfo} from '../components/CardInfo/CardInfo'
 import {useParams, useNavigate} from 'react-router-dom'
 import {AppContext} from '../components/AppContext/AppContext'
 import {ButtonSub} from '../components/ButtonSub/ButtonSub'
+import {changeLocalStorage} from '../services/storage'
 
 // Define a tipagem dos dados do usuário
 interface UserData {
@@ -35,7 +36,8 @@ export const Conta = () => {
   // Função para fazer logout do usuário
   const logout = () => {
     // Define o status de login como false
-    setIsLoggedIn(false) 
+    changeLocalStorage('DIOBank', {login: false})
+    setIsLoggedIn(false)
      // Navega para a página inicial
     navigate('/')
   }

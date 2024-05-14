@@ -4,6 +4,7 @@ import {useState, useContext } from 'react'
 import { login } from '../services/login'
 import {useNavigate} from 'react-router-dom'
 import {AppContext} from '../components/AppContext/AppContext'
+import {changeLocalStorage} from '../services/storage'
 
 // Página Home que exibe o formulário de login
 export const Home = () => {
@@ -24,6 +25,7 @@ export const Home = () => {
     } else {
       // Define o status de login como true e navega para a página da conta do usuário
       setIsLoggedIn(true)
+      changeLocalStorage('DIOBank', {login: true})
       navigate('/conta/1')
     }
   }
