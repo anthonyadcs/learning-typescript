@@ -7,8 +7,8 @@
     createUser = (req: Request, res: Response) => {
       const user = req.body;
 
-      if(!user.name) {
-        return res.status(400).json({message: 'Bad Request: Nome inválido.'})
+      if(!user.name || !user.email) {
+        return res.status(400).json({message: 'Bad Request: Login inválido.'})
       }
 
       userService.createUser(user.name, user.email)
