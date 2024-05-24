@@ -23,12 +23,21 @@ export class UserService {
       email,
     }
     
-    console.log(db, 'default')
     this.db.push(user)
-    console.log(db, 'updated db')
+
   };
 
   getAllUsers = () => {
     return db
+  }
+
+  deleteUser = (name: string, email: string) => {
+    for(let i = 0; i < this.db.length; i++) {
+        if(this.db[i].name === name && this.db[i].email === email) {
+            this.db.splice(i, 1)
+            console.log('Usuário deletado', this.db)
+            return
+        }
+    }
   }
 }
