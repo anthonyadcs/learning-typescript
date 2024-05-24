@@ -1,6 +1,6 @@
 import {Response} from 'express'
 
-type MockResponse<TResult> = Response & {
+export type MockResponse<TResult> = Response & {
   state: {
     status?: number,
     json?: TResult | unknown
